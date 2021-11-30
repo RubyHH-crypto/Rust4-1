@@ -1,0 +1,29 @@
+#[derive(Debug)]
+enum TrafficLight{
+    RED,
+    GREEN,
+    YELLOW,
+}
+
+trait Delay{
+    fn delay_time(&self) -> u32;
+}
+
+impl Delay for TrafficLight{
+    fn delay_time(&self) -> u32{
+        match self {
+            TrafficLight::RED=>30,
+            TrafficLight::GREEN=>15,
+            TrafficLight::YELLOW=>3,
+        }
+    }
+}
+
+fn main() {
+    let light_1=TrafficLight::RED;
+    let light_2=TrafficLight::GREEN;
+    let light_3=TrafficLight::YELLOW;
+    println!("{:#?},{:#?}",light_1,light_1.delay_time());
+    println!("{:#?},{:#?}",light_2,light_2.delay_time());
+    println!("{:#?},{:#?}",light_3,light_3.delay_time());
+}
